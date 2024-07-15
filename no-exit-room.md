@@ -103,7 +103,7 @@ Then to set isSolved() in the Room contracts to true, we have to call solveRoomP
 
 The Room contract is getting the address for the _protocol contract from beacon.implementation(), and the Beacon contract has no authentication, so anyone can set the implementation to their own contract :
 
-```
+```solidity
 contract Beacon is IBeacon {
     address internal _impl;
 
@@ -200,7 +200,7 @@ So we can just call request() in its neighboring Rooms, and it will call onReque
 
 There is a _channelCheck internal call which calls the channel contract's record() function with the x value and the addresses :
 
-```
+```solidity
     function _channelCheck(address a, address b, int256 x) internal {
         if (_chan == address(0)) {
             return;
